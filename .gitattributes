@@ -1,0 +1,30 @@
+# ------------------ Text files ------------------
+# Normalize all text files to use LF in the repository
+
+# CSS files
+*.css text eol=lf
+
+# JavaScript files
+*.js text eol=lf
+
+# JSON files
+*.json text eol=lf
+
+# Python files
+*.py text eol=lf
+
+# HTML files
+*.html text eol=lf
+
+# Markdown / documentation
+*.md text eol=lf
+*.txt text eol=lf
+
+# ------------------ Binary files ------------------
+# Do not modify line endings in binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.db binary

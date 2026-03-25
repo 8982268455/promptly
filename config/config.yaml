@@ -1,0 +1,35 @@
+# Model configuration section
+model:
+  name: gpt-4                     # Name of the model to use
+  api: "https://api.openai.com/v1/chat/completions"  # API endpoint for chat completions
+  
+  # Authentication configuration (choose one method)
+  auth_type: "basic"               # Authentication type: "basic" or "apikey"
+  username: "your_username"        # Username for basic auth
+  password: "your_password"        # Password for basic auth
+
+  # Example for API key authentication (commented out)
+  # auth_type: "apikey"
+  # api_key: "sk-xxxx..."          # API key for authentication if using apikey method
+
+# Generation parameters
+generation:
+  temperature: 0                   # Controls randomness; 0 = deterministic
+  context_length: 130000           # Maximum number of tokens to consider in context
+  max_out_tokens: 64000            # Maximum tokens the model can generate in a response
+  max_message_pairs: 5             # Maximum number of message exchanges to retain in context
+  top_p: 1                         # Nucleus sampling parameter; 1 = no filtering
+  do_sample: false                 # Whether to sample randomly or pick highest probability
+  seed: 42                         # Seed for reproducibility of random processes
+
+# System prompt configuration
+system:
+  prompt: "You are senior software engineer."  # Instruction to guide model’s behavior
+
+# Database configuration
+database:
+  file: "data/sessions.db"         # Path to the SQLite database for session storage
+
+# Tokenizer configuration
+tokenizer:
+  path: "data/tokenizer.json"      # Path to tokenizer file for text processing

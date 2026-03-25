@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Define character encoding and viewport for responsive design -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Page title displayed in browser tab -->
+  <title>Promptly</title>
+
+  <!-- Link to main CSS stylesheet for app styling -->
+  <link rel="stylesheet" href="static/css/style.css">
+
+  <!-- Link to Prism CSS for syntax highlighting of code blocks in chat -->
+  <link rel="stylesheet" href="static/css/prism.css"> 
+</head>
+<body>
+  <!-- Sidebar containing a New Chat button -->
+  <div id="sidebar">
+    <!-- Button to start a new chat session, referenced in chat.js -->
+    <button id="new-chat" title="New Chat">+</button>
+  </div>
+
+  <!-- Main application container -->
+  <div id="app">
+    <!-- Chat panel where user and AI messages will appear -->
+    <div id="chat-panel">
+      <div id="chat"></div> <!-- Chat messages appended dynamically via chat.js -->
+    </div>
+
+    <!-- Input area for typing messages -->
+    <div id="input-area">
+      <div class="input-box"> 
+        <!-- Textarea for user input, auto-grow handled in chat.js -->
+        <textarea id="prompt" placeholder="Ask Me?"></textarea>
+        
+        <!-- Send button to submit messages, handled in chat.js -->
+        <button type="button" id="send-btn">→</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Load JavaScript libraries locally -->
+
+  <!-- Markdown-it library for rendering Markdown in AI responses -->
+  <script src="static/js/markdown-it.min.js"></script>
+
+  <!-- Prism.js library for syntax highlighting of code blocks -->
+  <script src="static/js/prism.js"></script>            
+
+  <!-- Main chat logic script that handles message sending, AI streaming, and session management -->
+  <script src="static/js/chat.js"></script>            
+</body>
+</html>

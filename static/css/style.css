@@ -1,0 +1,228 @@
+/* ===== Basic Layout ===== */
+body {
+  font-family: "Segoe UI", Arial, sans-serif; /* Main font for the page */
+  background: #e0e9f8; /* Light blue page background */
+  margin: 0; /* Remove default margin */
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  min-height: 100vh; /* Full viewport height */
+}
+
+/* ===== Sidebar ===== */
+#sidebar {
+  position: fixed; /* Always visible on the left */
+  left: 0;
+  top: 0;
+  width: 70px; /* Narrow sidebar */
+  height: 100vh;
+  background: #4a90e2; /* Blue sidebar */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px 0;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.1); /* Subtle shadow */
+  z-index: 1000; /* Stay on top */
+}
+
+/* Sidebar buttons styling */
+#sidebar button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%; /* Circular buttons */
+  background: white;
+  color: #4a90e2;
+  font-size: 1.2em;
+  cursor: pointer;
+  margin: 10px 0;
+  transition: transform 0.2s; /* Hover animation */
+}
+#sidebar button:hover { transform: scale(1.2); } /* Slightly enlarge on hover */
+
+/* ===== Chat Panel ===== */
+#chat-panel {
+  margin-left: 70px; /* Leave space for sidebar */
+  width: calc(100% - 70px);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+#chat {
+  flex: 1;
+  overflow-y: auto; /* Scrollable chat */
+  padding: 20px;
+  padding-bottom: 120px; /* Leave space for input area */
+  display: flex;
+  flex-direction: column;
+  white-space: pre-wrap; /* Preserve line breaks */
+  word-wrap: break-word; 
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+/* ===== Messages ===== */
+.message {
+  margin: 10px 0;
+  max-width: 70%; /* Limit width */
+  line-height: 1.5;
+  font-size: 1.2em;
+  padding: 10px 15px;
+  border-radius: 12px;
+  background: #f0f4f8;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+.ai {
+  color: #333;
+  align-self: center; 
+  text-align: left;
+  background: #e0e9f8; /* AI message background */
+}
+
+.user {
+  color: #333;
+  align-self: flex-end;
+  text-align: right;
+  background: #e0e9f8; /* User message background */
+  margin-right: 10px; 
+}
+
+/* ===== Markdown Styling within messages ===== */
+.message pre {
+  background: #f5f2f0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 10px;
+  overflow-x: auto;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 0.95em;
+  margin: 0.5em 0;
+}
+
+.message code {
+  background: #f0f0f0;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 0.95em;
+}
+
+.message p { margin: 0.4em 0; }
+.message ul, .message ol { margin: 0.5em 0 0.5em 1.5em; padding: 0; }
+.message blockquote { border-left: 3px solid #ccc; padding-left: 10px; color: #555; margin: 0.5em 0; }
+.message table { border-collapse: collapse; margin: 0.5em 0; }
+.message table th, .message table td { border: 1px solid #ddd; padding: 0.5em 1em; }
+
+/* ===== Input Area (fixed at bottom) ===== */
+#input-area {
+  position: fixed;
+  bottom: 10px;
+  left: 70px;                     
+  width: calc(100% - 70px);       
+  display: flex;
+  justify-content: center;
+  background: transparent;
+  z-index: 1001;
+}
+
+/* ===== Inner Input Box ===== */
+.input-box {
+  width: 70%;
+  max-width: 800px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 12px 50px 12px 16px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Textarea styling */
+#prompt {
+  width: 100%;
+  border: none;
+  outline: none;
+  resize: none;
+  font-size: 1.2em;
+  line-height: 1.4em;
+  min-height: 40px;
+  max-height: 200px;
+  background: transparent;
+}
+
+/* Send Button styling */
+#send-btn {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 36px;
+  height: 36px;
+  background: #4a90e2;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+#send-btn:hover:enabled { background: #357ABD; transform: scale(1.15); }
+#send-btn.loading { animation: spin 1s linear infinite; background: #50c9c3; }
+#send-btn:disabled { background: #aaa; cursor: not-allowed; transform: none; }
+
+/* ===== Typing Indicator ===== */
+.typing-indicator { display: inline-flex; gap: 4px; align-items: center; margin: 5px 0; }
+.typing-indicator span {
+  width: 6px;
+  height: 6px;
+  background: #4a90e2;
+  border-radius: 50%;
+  display: inline-block;
+  animation: blink 1.4s infinite;
+}
+.typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+.typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+/* Blink animation for typing indicator dots */
+@keyframes blink {
+  0% { opacity: 0.2; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(-3px); }
+  100% { opacity: 0.2; transform: translateY(0); }
+}
+
+/* Spin animation for loading send button */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ===== Responsive adjustments ===== */
+@media (max-width: 768px) {
+  #chat-panel {
+    margin-left: 0;
+    width: 100%;
+    padding: 10px;
+    padding-bottom: 140px;
+  }
+
+  #input-area {
+    left: 70px;
+    width: calc(100% - 70px);
+  }
+
+  .input-box {
+    width: calc(100% - 20px);
+    border-radius: 12px;
+  }
+
+  #prompt { font-size: 1em; min-height: 60px; }
+
+  .message { font-size: 1.1em; max-width: 80%; }
+  .ai { align-self: center; margin-left: 10px; margin-right: 10px; }
+  .user { align-self: flex-end; margin-left: 10px; margin-right: 10px; }
+}

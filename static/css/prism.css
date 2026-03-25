@@ -1,0 +1,133 @@
+/* ------------------ Base styles for code blocks ------------------ */
+
+/* Style all code and pre elements with a class containing "language-" */
+code[class*=language-],
+pre[class*=language-] {
+    color: #ccc; /* Default text color */
+    background: 0 0; /* Transparent background */
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace; /* Monospace font stack */
+    font-size: 1em; /* Standard font size */
+    text-align: left; /* Left-aligned text */
+    white-space: pre; /* Preserve whitespace and line breaks */
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5; /* Line spacing for readability */
+    -moz-tab-size: 4; /* Firefox tab size */
+    -o-tab-size: 4;   /* Opera tab size */
+    tab-size: 4;      /* Standard tab size */
+    -webkit-hyphens: none; /* Disable hyphenation */
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+/* Add padding, margin, and overflow for pre blocks */
+pre[class*=language-] {
+    padding: 1em;
+    margin: 0.5em 0;
+    overflow: auto; /* Scroll if content exceeds block size */
+}
+
+/* Inline code styling for non-pre elements */
+:not(pre) > code[class*=language-],
+pre[class*=language-] {
+    background: #2d2d2d; /* Dark background for code blocks */
+}
+
+/* Inline code specific adjustments */
+:not(pre) > code[class*=language-] {
+    padding: 0.1em; /* Slight padding around inline code */
+    border-radius: 0.3em; /* Rounded corners */
+    white-space: normal; /* Allow text wrapping inline */
+}
+
+/* ------------------ Syntax highlighting ------------------ */
+
+/* Comments, CDATA, doctype, prolog */
+.token.block-comment,
+.token.cdata,
+.token.comment,
+.token.doctype,
+.token.prolog {
+    color: #999; /* Light gray for comments */
+}
+
+/* Punctuation characters */
+.token.punctuation {
+    color: #ccc;
+}
+
+/* Attribute names, deleted text, namespaces, tags */
+.token.attr-name,
+.token.deleted,
+.token.namespace,
+.token.tag {
+    color: #e2777a; /* Pinkish color */
+}
+
+/* Function names */
+.token.function-name {
+    color: #6196cc; /* Light blue */
+}
+
+/* Boolean, functions, numbers */
+.token.boolean,
+.token.function,
+.token.number {
+    color: #f08d49; /* Orange */
+}
+
+/* Class names, constants, properties, symbols */
+.token.class-name,
+.token.constant,
+.token.property,
+.token.symbol {
+    color: #f8c555; /* Yellow/gold */
+}
+
+/* At-rules, built-in keywords, important, keywords, selectors */
+.token.atrule,
+.token.builtin,
+.token.important,
+.token.keyword,
+.token.selector {
+    color: #cc99cd; /* Light purple */
+}
+
+/* Attribute values, characters, regex, strings, variables */
+.token.attr-value,
+.token.char,
+.token.regex,
+.token.string,
+.token.variable {
+    color: #7ec699; /* Greenish */
+}
+
+/* Entities, operators, URLs */
+.token.entity,
+.token.operator,
+.token.url {
+    color: #67cdcc; /* Cyan */
+}
+
+/* Bold or important tokens */
+.token.bold,
+.token.important {
+    font-weight: 700; /* Bold */
+}
+
+/* Italic tokens */
+.token.italic {
+    font-style: italic;
+}
+
+/* Entities show a help cursor on hover */
+.token.entity {
+    cursor: help;
+}
+
+/* Inserted tokens (added code) */
+.token.inserted {
+    color: green;
+}
