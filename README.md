@@ -7,7 +7,8 @@
 [![GitHub issues](https://img.shields.io/github/issues/8982268455/promptly)](https://github.com/8982268455/promptly/issues)  
 
 > **Promptly** — A lightweight web-based chat application that allows multiple users to interact with an AI model in real-time with Markdown rendering and syntax-highlighted code blocks.
-
+---
+> We have **comments** in all files so that you can easily understand the working.
 ---
 
 ## 🌟 Features
