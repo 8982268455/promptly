@@ -54,7 +54,7 @@
 1. **Clone the repository**
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/Rohit96-Code/promptly.git
 cd <your-repo-folder>
 ```
 
